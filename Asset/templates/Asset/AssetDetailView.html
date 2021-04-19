@@ -1,0 +1,170 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'Asset.css' %}">
+<h1 class="text-info">
+        Asset Details
+</h1><br>
+<div class="container" id="myWizard">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav nav-tabs">
+                <li>
+                    <a href="#General" data-toggle="tab" role="button" class="btn btn-primary active gen">
+                        General
+                    </a>
+                </li>
+                <li>
+                    <a href="#Technical" data-toggle="tab"  class="btn btn-primary tech">
+                        Technical
+                    </a>
+                </li>
+                <li>
+                    <a href="#Economic" data-toggle="tab"  class="btn btn-primary eco">
+                        Economic
+                    </a>
+                </li>
+                <li>
+                    <a href="#Maintenance" data-toggle="tab"  class="btn btn-primary maintenance">
+                        Maintenance
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="jumbotron main" style="margin-bottom: 10px;">
+        <form class="tab-content">
+            <!-- Details Tab General -->
+            <div id="General" class="tab-pane active">
+                <h4>
+                    <b>
+                        General
+                    </b>
+                </h4><br>
+
+                <div class="part1" style="left:5%;">
+                    <b>Equipment ID:</b>&nbsp;&nbsp;<i>{{ object.Equipment_ID }}</i><hr>
+                    <b>Asset Number:</b>&nbsp;&nbsp;<i>{{object.Asset_Number}}</i><hr>
+                    <b>Equipment Name:</b>&nbsp;&nbsp;<i>{{ object.Equipment_Name }}</i><hr>
+                    <b>Alternative Name:</b>&nbsp;&nbsp;<i>{{object.Alternative_Name}}</i><hr>
+                    <b>ECRI NUmber:</b>&nbsp;&nbsp;<i>{{object.ECRI_NUmber}}</i><hr>
+                    <b>Manufacturer:</b>&nbsp;&nbsp;<i>{{ object.Manufacturer }}</i><hr>
+                    <b>Model Name:</b>&nbsp;&nbsp;<i>{{ object.Model_Name }}</i><hr>
+                    <b>Serial Number:</b>&nbsp;&nbsp;<i>{{ object.Serial_Number}}</i><hr>
+                    <b>Supplier Name:</b>&nbsp;&nbsp;<i>{{ object.Supplier_Name }}</i><hr>
+                    <b>Site Name:</b>&nbsp;&nbsp;<i>{{ object.Site_Name }}</i><hr>
+                    <b>Location Name:</b>&nbsp;&nbsp;<i>{{object.Location_Name}}</i><hr>
+                </div>
+
+                <div class="vl"></div>
+
+                <div class="part2" style="top:15%;left:60%">
+                    <b>Location Number:</b>&nbsp;&nbsp;<i>{{object.Location_Number}}</i><hr>
+                    <b>Functional_Group:</b>&nbsp;&nbsp;<i>{{ object.Functional_Group }}</i><hr>
+                    <b>Dept_Name:</b>&nbsp;&nbsp;<i>{{ object.Dept_Name }}</i><hr>
+                    <b>Installation_Date:</b>&nbsp;&nbsp;<i>{{ object.Installation_Date }}</i><hr>
+                    <b>Warranty:</b>&nbsp;&nbsp;<i>{{ object.Warranty }}</i><hr>
+                    <b>End_of_Warranty:</b>&nbsp;&nbsp;<i>{{ object.End_of_Warranty }}</i><hr>
+                    <b>Depreciation_Years:</b>&nbsp;&nbsp;<i>{{ object.Depreciation_Years }}</i><hr>
+                    <b>Replacement_Date:</b>&nbsp;&nbsp;<i>{{ object.Replacement_Date }}</i><hr>
+                    <b>Acceptance_Date:</b>&nbsp;&nbsp;<i>{{ object.Acceptance_Date }}</i><hr>
+                    <b>Purch_Price:</b>&nbsp;&nbsp;<i>{{ object.Purch_Price }}</i><hr>
+                    <b>Accessories:</b>&nbsp;&nbsp;<i>{{ object.Accessories }}</i><hr>
+	            </div>
+            </div>
+
+            <!-- Details Tab Technical -->
+            <div id="Technical" class="tab-pane">
+                <h4>
+                    <b>
+                        Technical
+                    </b>
+                </h4><br>
+
+                <div class="part1" style="left:5%;">
+                    <b>Operating System:</b>&nbsp;&nbsp;<i>{{object.Operating_System}}</i><hr>
+                    <b>Antivirus Software:</b>&nbsp;&nbsp;<i>{{object.Antivirus_Software}}</i><hr>
+                    <b>Application Software:</b>&nbsp;&nbsp;<i>{{object.Application_Software}}</i><hr>
+                    <b>Revision:</b>&nbsp;&nbsp;<i>{{object.Revision}}</i><hr>
+                    <b>IP Address:</b>&nbsp;&nbsp;<i>{{object.IP_Address}}</i><hr>
+                    <b>MAC Address:</b>&nbsp;&nbsp;<i>{{object.MAC_Address}}</i><hr>
+                    <b>Port No:</b>&nbsp;&nbsp;<i>{{object.Port_No}}</i><hr>
+                </div>
+
+                <div class="vl"></div>
+
+                <div class="part2" style="top:21%;left:60%;">
+                    <b>Switch Specs:</b>&nbsp;&nbsp;<i>{{object.Switch_Specs}}</i><hr>
+                    <b>Equipment License_Details:</b>&nbsp;&nbsp;<i>{{object.Equipment_License_Details}}</i><hr>
+                    <b>Test Equipment Needed For Test/PM:</b>&nbsp;&nbsp;<i>{{object.Test_Equipment_Needed_For_Test_Or_PM}}</i><hr>
+                    <b>Operating Voltage:</b>&nbsp;&nbsp;<i>{{object.Operating_Voltage}}</i><hr>
+                    <b>Power Consumption:</b>&nbsp;&nbsp;<i>{{object.Power_Consumption}}</i><hr>
+                    <b>Various Passwords For User:</b>&nbsp;&nbsp;<i>{{object.Various_Passwords_For_User}}</i><hr>
+                </div>
+            </div>
+
+            <!-- Details Tab Economic -->
+            <div id="Economic" class="tab-pane">
+                <h4>
+                    <b>
+                        Economic
+                    </b>
+                </h4><br>
+
+                <div class="part1" style="left:5%;">
+                    <b>PO Number:</b>&nbsp;&nbsp;<i>{{object.PO_Number}}</i><hr>
+                    <b>Purchase Value:</b>&nbsp;&nbsp;<i>{{object.Purchase_Value}}</i><hr>
+                    <b>Residual Value:</b>&nbsp;&nbsp;<i>{{object.Residual_Value}}</i><hr>
+                    <b>Depreciated Value:</b>&nbsp;&nbsp;<i>{{object.Depreciated_Value}}</i><hr>
+                    <b>Hourly Code:</b>&nbsp;&nbsp;<i>{{object.Hourly_Code}}</i><hr>
+                </div>
+
+                <div class="vl"></div>
+
+                <div class="part2" style="left:60%; top:26%;">
+                    <b>Risk Code:</b>&nbsp;&nbsp;<i>{{object.Risk_Code}}</i><hr>
+                    <b>Material AssetNumber:</b>&nbsp;&nbsp;<i>{{object.Material_AssetNumber}}</i><hr>
+                    <b>Internal RequestNumber:</b>&nbsp;&nbsp;<i>{{object.Internal_RequestNumber}}</i><hr>
+                    <b>Internal RequestDate:</b>&nbsp;&nbsp;<i>{{object.Internal_RequestDate}}</i><hr>
+                    <b>Financial ACNumber:</b>&nbsp;&nbsp;<i>{{object.Financial_ACNumber}}</i><hr>
+                </div>
+            </div>
+
+            <!-- Details Tab Maintenance -->
+            <div id="Maintenance" class="tab-pane">
+                <h4>
+                    <b>
+                        Maintenance
+                    </b>
+                </h4><br>
+
+                <div class="part1" style="left:5%;">
+                    <b>Service Provider Name:</b>&nbsp;&nbsp;<i>{{object.Service_Provider_Name}}</i><hr>
+                    <b>Contract Number:</b>&nbsp;&nbsp;<i>{{object.Contract_Number}}</i><hr>
+                    <b>Concerned Person Name:</b>&nbsp;&nbsp;<i>{{object.Concerned_Person_Name}}</i><hr>
+                    <b>Concerned Person Contact:</b>&nbsp;&nbsp;<i>{{object.Concerned_Person_Contact}}</i><hr>
+                    <b>No of Planned PM:</b>&nbsp;&nbsp;<i>{{object.No_of_Planned_PM}}</i><hr>
+                    <b>No of Corrective Planned:</b>&nbsp;&nbsp;<i>{{object.No_of_Corrective_Planned}}</i><hr>
+                    <b>No of Planned QC:</b>&nbsp;&nbsp;<i>{{object.No_of_Planned_QC}}</i><hr>
+                    <b>Spare Part Inclusion in PM:</b>&nbsp;&nbsp;<i>{{object.Spare_Part_Inclusion_in_PM}}</i><hr>
+                    <b>Spare Part Inclusion in CM:</b>&nbsp;&nbsp;<i>{{object.Spare_Part_Inclusion_in_CM}}</i><hr>
+                </div>
+
+                <div class="vl"></div>
+
+                <div class="part2" style="left:60%; top:17%">
+                    <b>Max Down Time:</b>&nbsp;&nbsp;<i>{{object.Max_Down_Time}}</i><hr>
+                    <b>Response Time:</b>&nbsp;&nbsp;<i>{{object.Response_Time}}</i><hr>
+                    <b>Estimated Time To Repair:</b>&nbsp;&nbsp;<i>{{object.Estimated_Time_to_Repair}}</i><hr>
+                    <b>Standardized Reason for Delay in PM:</b>&nbsp;&nbsp;<i>{{object.Standardized_Reason_for_Delay_in_PM}}</i><hr>
+                    <b>Operating Manual:</b>&nbsp;&nbsp;<i>{{object.Operating_Manual}}</i><hr>
+                    <b>Service Manual:</b>&nbsp;&nbsp;<i>{{object.Service_Manual}}</i><hr>
+                    <b>Battery Replacement_Frequency:</b>&nbsp;&nbsp;<i>{{object.Battery_Replacement_Frequency}}</i><hr>
+                    <b>Battery Maintenance:</b>&nbsp;&nbsp;<i>{{object.Battery_Maintenance}}</i><hr>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content%}

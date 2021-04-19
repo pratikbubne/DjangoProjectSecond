@@ -1,0 +1,153 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'Asset.css' %}">
+<h1 class="text-info" style="margin-top:-30;">
+    Asset Search
+</h1>
+<div class="container" id="myWizard">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav nav-tabs">
+                <li>
+                    <a href="#General" data-toggle="tab" role="button" class="btn btn-primary gen">
+                        General
+                    </a>
+                </li>
+                <li>
+                    <a href="#Technical" data-toggle="tab"  class="btn btn-primary disable tech">
+                        Technical
+                    </a>
+                </li>
+                <li>
+                    <a href="#Economic" data-toggle="tab"  class="btn btn-primary disable eco">
+                        Economic
+                    </a>
+                </li>
+                <li>
+                    <a href="#Maintenance" data-toggle="tab"  class="btn btn-primary disable maintenance">
+                        Maintenance
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+<div class="jumbotron main" style="top:-20;">
+    <form method="get" class="tab-content">
+        <!-- Search Tab General -->
+        <div id="General" class="tab-pane active">
+            <div class="Searchpart1" style="margin-top: -58;">
+                {% load widget_tweaks %}
+                <label>Serial_Number:</label>
+                {%render_field filter.form.Serial_Number class="form-control"  placeholder="Serial Number" %}<hr>
+                <label>Equipment_Name:</label>
+                {%render_field filter.form.Equipment_Name class="form-control"  placeholder="Equipment Name" %}<hr>
+                <label>Asset_Number:</label>
+                {%render_field filter.form.Asset_Number class="form-control"  placeholder="Asset Number" %}<hr>
+                <label>ECRI_NUmber:</label>
+                {%render_field filter.form.ECRI_Number class="form-control"  placeholder="ECRI Number" %}<hr>
+                <label>Manufacturer:</label>
+                {%render_field filter.form.Manufacturer class="form-control"  placeholder="Manufacturer" %}<hr>
+            </div>
+
+            <div class="vl" style="left:33%;"></div>
+
+            <div class="Searchpart2" style="top:3%;">
+                <label>Location_Number:</label>
+                {%render_field filter.form.Location_Number class="form-control"  placeholder="Location Number" %}<hr>
+                <label>Supplier_Name:</label>
+                {%render_field filter.form.Supplier_Name class="form-control"  placeholder="Supplier_Name" %}<hr>
+                <label>Model_Name:</label>
+                {%render_field filter.form.Model_Name class="form-control"  placeholder="Model_Name" %}<hr>
+                <label>Functional_Group:</label>
+                {%render_field filter.form.Functional_Group class="form-control"  placeholder="Functional_Group" %}<hr>
+            </div>
+
+            <div class="vl" style="left:66.5%;"></div>
+
+            <div class="Searchpart3" style="top:3%;">
+                <label>Technical Department:</label>
+                {%render_field filter.form.Dept_Name class="form-control"  placeholder="Technical Department" %}<hr>
+                <label>Site_Name:</label>
+                {%render_field filter.form.Site_Name class="form-control"  placeholder="Site_Name" %}<hr>
+                <label>End_of_Warranty:</label>
+                {%render_field filter.form.End_of_Warranty class="form-control"  placeholder="End_of_Warranty" %}<hr>
+                <label>Installation_Date:</label>
+                {%render_field filter.form.Installation_Date class="form-control"  placeholder="Installation_Date" %}<hr>
+            </div>
+            <button class="btn btn-primary Searchbton" type="submit" style="left:35%;">Search</button>
+            <button class="btn btn-primary Searchbton"  type="reset" style="left: 68%;">Clear</button>
+        </div>
+
+        <!-- Search Tab Technical -->
+        <div id="Technical" class="tab-pane">
+            <div class="Searchpart1" style="margin-top: -58;">
+                <label>Operating_System:</label>
+                {%render_field filter.form.Operating_System class="form-control"  placeholder="Operating System" %}<hr>
+	            <label>Antivirus_Software:</label>
+                {%render_field filter.form.Antivirus_Software class="form-control"  placeholder="Antivirus Software" %}<hr>
+	            <label>Application_Software:</label>
+                {%render_field filter.form.Application_Software class="form-control"  placeholder="Application Software" %}<hr>
+            </div>
+
+            <div class="vl" style="left:33%;"></div>
+
+            <div class="Searchpart2" style="top:4%;">
+                <label>IP_Address:</label>
+                {%render_field filter.form.IP_Address class="form-control"  placeholder="IP Address" %}<hr>
+	            <label>MAC_Address:</label>
+                {%render_field filter.form.MAC_Address class="form-control"  placeholder="MAC Address" %}<hr>
+            </div>
+            <button class="btn btn-primary Searchbton" type="submit" style="left:35%;top:88%;">Search</button>
+            <button class="btn btn-primary Searchbton"  type="reset" style="left: 68%;top:88%;">Clear</button>
+        </div>
+
+        <!-- Search Tab Economic -->
+        <div id="Economic" class="tab-pane">
+            <div class="Searchpart1" style="margin-top: -58;">
+                <label>PO Number:</label>
+                {%render_field filter.form.PO_Number class="form-control"  placeholder="PO Number" %}<hr>
+	            <label>Hourly Code:</label>
+                {%render_field filter.form.Hourly_Code class="form-control"  placeholder="Hourly Code" %}<hr>
+	            <label>Risk Code:</label>
+                {%render_field filter.form.Risk_Code class="form-control"  placeholder="Risk Code" %}<hr>
+            </div>
+
+            <div class="vl" style="left:33%;"></div>
+
+            <div class="Searchpart2" style="top:4%;">
+                <label>Material AssetNumber:</label>
+                {%render_field filter.form.Material_AssetNumber class="form-control"  placeholder="Material AssetNumber" %}<hr>
+	            <label>Internal RequestNumber:</label>
+                {%render_field filter.form.Internal_RequestNumber class="form-control"  placeholder="Internal RequestNumber" %}<hr>
+            </div>
+			<button class="btn btn-primary Searchbton" type="submit" style="left:35%;top:88%;">Search</button>
+            <button class="btn btn-primary Searchbton"  type="reset" style="left: 68%;top:88%;">Clear</button>
+        </div>
+
+        <!-- Search Tab Maintenance -->
+        <div id="Maintenance" class="tab-pane">
+            <div class="Searchpart1" style="margin-top: -58;">
+                <label>Service_Provider_Name:</label>
+                {%render_field filter.form.Service_Provider_Name class="form-control"  placeholder="Service_Provider_Name" %}<hr>
+	            <label>Concerned_Person_Name:</label>
+                {%render_field filter.form.Concerned_Person_Name class="form-control"  placeholder="Concerned_Person_Name" %}<hr>
+                <label>Contract_Number:</label>
+                {% render_field filter.form.Contract_Number class="form-Control" placeholder="Contract Number"%}<hr>
+            </div>
+			<button class="btn btn-primary Searchbton" type="submit" style="left:35%;top:88%;">Search</button>
+            <button class="btn btn-primary Searchbton"  type="reset" style="left: 68%;top:88%;">Clear</button>
+        </div>
+    </form>
+</div>
+</div>
+<div class="jumbotron">
+    <ul class="list-unstyled components div">
+        {% for equipment in filter.qs %}
+            <li>
+                BLANK
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

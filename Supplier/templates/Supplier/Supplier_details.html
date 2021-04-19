@@ -1,0 +1,22 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'Asset.css' %}">
+<h1 class="text-info">
+    Supplier Details
+</h1><br>
+
+<div class="jumbotron main" style="width:40%; left:30%;">
+    <div class="det">
+        <b>Supplier_ID:</b>&nbsp;&nbsp;<i>{{ object.Supplier_ID }}</i><br><hr>
+        <b>Supplier_name:</b>&nbsp;&nbsp;<i>{{ object.Supplier_Name }}</i><br><hr>
+        <b>Supplier_mailid:</b>&nbsp;&nbsp;<i>{{ object.Supplier_Mailid }}</i><br><hr>
+        <b>Supplier_mobile:</b>&nbsp;&nbsp;<i>{{ object.Supplier_Mobile }}</i><br><hr>
+        <b>City:</b>&nbsp;&nbsp;<i>{{ object.City}}</i><br><hr>
+        <b>Address:</b>&nbsp;&nbsp;<i>{{ object.Address }}</i><hr>
+    </div>
+    <a href="{% url 'SupplierListView' %}" class="btn btn-lg btn-primary addbtn" style="color:white;">
+        All Supplier
+    </a>
+</div>
+{% endblock content%}

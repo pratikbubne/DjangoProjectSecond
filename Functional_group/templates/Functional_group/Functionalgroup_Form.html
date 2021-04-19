@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'Asset.css' %}">
+<h1 class="text-info">
+        Functional Group Form
+</h1><br>
+
+<div class="jumbotron main2">
+    <form method="POST">
+        {% csrf_token %}
+            {% load widget_tweaks %}
+                <label>Functional Group Name:</label>
+                {% render_field form.Functional_Group class="form-control" placeholder="Functional Group Name" %}<hr>
+
+                <input class="btn btn-primary" type="submit" value="Submit" style="left: 30%;">
+                <input class="btn btn-primary"  type="reset" value="Reset" style="left: 50%;">
+                <a href="{% url 'FunctionalGroupListView' %}" class="btn btn-primary" style="left: 70%;">
+                    All Functional Group
+                </a>
+     </form>
+</div>
+{% endblock content %}

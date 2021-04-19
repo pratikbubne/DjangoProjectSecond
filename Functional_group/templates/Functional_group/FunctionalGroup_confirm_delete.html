@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><hr><br>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete <b style="color:black;">"{{ object }}"?</b></p>
+    <input type="submit" value="Confirm" class="btn btn-warning" onclick="Delete......!">
+</form>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'Asset.css' %}">
+<h1 class="text-info">
+        Project Site Form
+</h1><br>
+
+<div class="jumbotron main2">
+    <form method="POST">
+        {% csrf_token %}
+        {% load widget_tweaks %}
+            <label>Site Name:</label>
+            {% render_field form.Site_Name class="form-control" placeholder="Site_Name"%}<hr>
+            <label>Site Location:</label>
+            {% render_field form.Site_Location class="form-control"  placeholder="Site_Location"%}<hr>
+            <label>Site Department:</label>
+            {% render_field form.Site_Department class="form-control" placeholder="Site_Department"%}<hr>
+            <label>Site Code:</label>
+            {% render_field form.Site_Code class="form-control"  placeholder="Site_Code"%}<hr>
+            <label>Organization:</label>
+            {% render_field form.Organization_Name class="form-control"  placeholder="Organization"%}<hr>
+            <label>Organization ID:</label>
+            {% render_field form.Organization_ID class="form-control"  placeholder="Organization_ID"%}<hr>
+
+
+            <input class="btn btn-primary" type="submit" value="Submit" style="left: 30%;" >
+            <input class="btn btn-primary"  type="reset" value="Reset" style="left: 50%;">
+            <a href="{% url 'ProjectSiteListView' %}" class="btn btn-primary" style="left: 70%;">
+                All Project Site
+            </a>
+    </form>
+</div>
+{% endblock content %}

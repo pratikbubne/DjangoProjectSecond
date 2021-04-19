@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'Asset.css' %}">
+<h1 class="text-info">
+        Project Details
+</h1><br>
+
+<div class="jumbotron main" style="width:40%;left:30%;">
+    <b>Site_ID:</b><i>&nbsp;&nbsp;{{ object.Site_ID }}</i><hr>
+    <b>Site Name:</b><i>&nbsp;&nbsp;{{ object.Site_Name }}</i><hr>
+    <b>Site Location:</b><i>&nbsp;&nbsp;{{object.Site_Location }}</i><hr>
+    <b>Site Department:</b><i>&nbsp;&nbsp;{{ object.Site_Department}}</i><hr>
+    <b>Site_Code:</b><i>&nbsp;&nbsp;{{object.Site_Code}}</i><hr>
+    <b>Organization_ID:</b><i>&nbsp;&nbsp;{{object.Organization_ID}}</i><hr>
+    <b>Organization_Name:</b><i>&nbsp;&nbsp;{{object.Organization_Name}}</i><hr>
+</div>
+    <a href="{% url 'ProjectSiteListView' %}" class="btn btn-lg btn-primary addbtn" style="color:white;">
+        All Project Site
+    </a>
+{% endblock content%}

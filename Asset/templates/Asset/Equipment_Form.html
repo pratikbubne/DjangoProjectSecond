@@ -1,0 +1,254 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'Asset.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<h1 class="text-info">
+        Asset
+</h1><br>
+<div class="container" id="myWizard">
+    <div class="navbar" style="margin-bottom: 20px;">
+        <div class="navbar-inner">
+            <ul class="nav nav-tabs">
+                <li><a href="#General" data-toggle="tab" role="button" class="btn btn-primary active gen">General</a></li>
+                <li><a href="#Technical" data-toggle="tab"  class="btn btn-primary tech">Technical</a></li>
+                <li><a href="#Economic" data-toggle="tab"  class="btn btn-primary eco">Economic</a></li>
+                <li><a href="#Maintenance" data-toggle="tab"  class="btn btn-primary maintenance">Maintenance</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="jumbotron main">
+        <form method="POST" class="tab-content">
+            {% csrf_token %}
+            <!-- Tab General -->
+            <div id="General" class="tab-pane active">
+                <div class="Assetpart1">
+                    {% load widget_tweaks %}
+                    <label>Asset Number:</label>
+                    {% render_field form.Asset_Number class="form-control" placeholder="Asset Number"%}<hr>
+                    <label>Equipment Name:</label>
+                    {% render_field form.Equipment_Name class="form-control"  placeholder="Equipment Name" required=""%}<hr>
+                    <label>Alternative_Name:</label>
+                    {% render_field form.Alternative_Name class="form-control" placeholder="Alternative Name"%}<hr>
+                    <label>ECRI_NUmber:</label>
+                    {% render_field form.ECRI_Number class="form-control" placeholder="ECRI NUmber"%}<hr>
+                    <label>Manufacture:</label>
+                    {% render_field form.Manufacturer class="form-control" placeholder="Manufacturer"%}<hr>
+                    <label>Model Name:</label>
+                    {% render_field form.Model_Name class="form-control"  placeholder="Model Name"%}<hr>
+                    <label>Serial Number:</label>
+                    {% render_field form.Serial_Number class="form-control" placeholder="Serial Number"%}<hr>
+                </div>
+
+                <div class="vl" style="left:32%;"></div>
+
+                <div class="Assetpart2">
+                    <label>Supplier Name:</label>
+                    {% render_field form.Supplier_Name class="form-control"  placeholder="Supplier Name"%}<hr>
+                    <label>Site Name:</label>
+                    {% render_field form.Site_Name class="form-control"  placeholder="Site Name"%}<hr>
+                    <label>Location Name:</label>
+                    {% render_field form.Location_Name class="form-control"  placeholder="Location Name"%}<hr>
+                    <label>Location Number:</label>
+                    {% render_field form.Location_Number class="form-control"  placeholder="Location Number"%}<hr>
+                    <label>Functional Group:</label>
+                    {% render_field form.Functional_Group class="form-control"  placeholder="Functional Group"%}<hr>
+                    <label>Installation Date:</label>
+                    {% render_field form.Installation_Date class="form-control"  placeholder="Installation Date"%}<hr>
+                    <label>Warranty:</label>
+                    {% render_field form.Warranty class="form-control"  placeholder="Warranty" %}<hr>
+                </div>
+
+                <div class="vl" style="left:66.5%;"></div>
+
+                <div class="Assetpart3">
+                    <label>End of Warranty:</label>
+                    {% render_field form.End_of_Warranty class="form-control"  placeholder="Enter Date" %}<hr>
+                    <label>Depreciation Years:</label>
+                    {% render_field form.Depreciation_Years class="form-control"  placeholder="Depreciation Years" %}<hr>
+                    <label>Replacement Date:</label>
+                    {% render_field form.Replacement_Date class="form-control"  placeholder="Replacement Date" %}<hr>
+                    <label>Acceptance Date:</label>
+                    {% render_field form.Acceptance_Date class="form-control"  placeholder="Acceptance Date" %}<hr>
+                    <label>Purch Price:</label>
+                    {% render_field form.Purch_Price class="form-control"  placeholder="Purch Price" %}<hr>
+                    <label>Accessories:</label>
+                    {% render_field form.Accessories class="form-control"  placeholder="Accessories" %}<hr>
+                    <label>Dept Name:</label>
+                    {% render_field form.Dept_Name class="form-control"  placeholder="Dept_Name"%}<hr>
+                </div>
+                <button  class="btn btn-primary next NEXTbton" style="left: 85%;">Next</button>
+                <input class="btn btn-primary RESETbton"  type="reset" value="Reset" style="left: 5%;">
+            </div>
+
+            <!-- Tab Technical -->
+            <div  id="Technical" class="tab-pane">
+                <div class="Assetpart1">
+                    {% load widget_tweaks %}
+                    <label>Operating system:</label>
+                    {% render_field form.Operating_System class="form-control"  placeholder="Operating system" %}<hr>
+                    <label>Application Software:</label>
+                    {% render_field form.Application_Software class="form-control" placeholder="Application Software" %}<hr>
+                    <label>Antivirus Software:</label>
+                    {% render_field form.Antivirus_Software class="form-control" placeholder="Antivirus Software" %}<hr>
+                    <label>Revision:</label>
+                    {% render_field form.Revision class="form-control" placeholder="Revision"%}<hr>
+                    <label>Battery Type:</label>
+                    {% render_field form.Battery_Type class="form-control"  placeholder="Battery Type" %}<hr>
+                    <label>Battery Rating:</label>
+                    {% render_field form.Battery_Rating class="form-control"  placeholder="Battery Rating" %}<hr>
+                    <label>Fuse Type:</label>
+                    {% render_field form.Fuse_Type class="form-control"  placeholder="Fuse_Type" %}<hr>
+                </div>
+
+                <div class="vl" style="left:32%;"></div>
+
+                <div class="Assetpart2">
+                    <label>Fuse Rating:</label>
+                    {% render_field form.Fuse_Rating class="form-control"  placeholder="Fuse Rating" %}<hr>
+                    <label>IP address:</label>
+                    {% render_field form.IP_Address class="form-control"  placeholder="IP address"%}<hr>
+                    <label>MAC address:</label>
+                    {% render_field form.MAC_Address class="form-control"  placeholder="MAC address"%}<hr>
+                    <label>Port no:</label>
+                    {% render_field form.Port_No  class="form-control"  placeholder="Port no "%}<hr>
+                    <label>Switch specs:</label>
+                    {% render_field form.Switch_Specs  class="form-control"  placeholder="Switch specs "%}<hr>
+                    <label>Equipment license details:</label>
+                    {% render_field form.Equipment_License_Details class="form-control"  placeholder="Equipment license details"%}<hr>                         <label>Test equipment needed for test/PM :</label>{% render_field form.Test_Equipment_Needed_For_Test_Or_PM class="form-control"  placeholder=" Test equipment needed for test or PM"%}<hr>
+                </div>
+
+                <div class="vl" style="left:66.5%;"></div>
+
+                <div class="Assetpart3">
+                    <label>Operating Voltage:</label>
+                    {% render_field form.Operating_Voltage class="form-control"  placeholder="Operating Voltage" %}<hr>
+                    <label>Power consumption:</label>
+                    {% render_field form.Power_Consumption class="form-control"  placeholder=" Power consumption" %}<hr>
+                    <label>Various Passwords For User:</label>
+                    {% render_field form.Various_Passwords_For_User class="form-control"  placeholder="Various Passwords for User" %}<hr>
+                    <label>Various Passwords For Demo:</label>
+                    {% render_field form.Various_Passwords_For_Demo class="form-control"  placeholder="Various Passwords for Demo" %}<hr>
+                    <label>Various Passwords For Service:</label>
+                    {% render_field form.Various_Passwords_For_Service class="form-control"  placeholder="Various Passwords for Service" %}<hr>
+                    <label>Various Passwords For Configuration:</label>
+                    {% render_field form.Various_Passwords_For_Configuration class="form-control"  placeholder="Various Passwords for Configuration" %}<hr>
+                </div>
+                <button  class="btn btn-primary next NEXTbton" style="left: 85%;">Next</button>
+                <input class="btn btn-primary RESETbton"  type="reset" value="Reset" style="left: 5%;">
+            </div>
+
+            <!-- Tab  Economic -->
+            <div id="Economic" class="tab-pane">
+                <div class="Assetpart1">
+                    {% load widget_tweaks %}
+                    <label>PO Number:</label>
+                    {% render_field form.PO_Number class="form-control"  placeholder="PO Number" %}<hr>
+                    <label>Purchase Value:</label>
+                    {% render_field form.Purchase_Value class="form-control" placeholder="Purchase Value " %}<hr>
+                    <label>Residual Value:</label>
+                    {% render_field form.Residual_Value class="form-control" placeholder="Residual Value " %}<hr>
+                    <label>Depreciated Value:</label>
+                    {% render_field form.Depreciated_Value class="form-control" placeholder="Depreciated Value"%}<hr>
+                </div>
+
+                <div class="vl" style="left:32%;"></div>
+
+                <div class="Economicpart2">
+                    <label> Hourly Code:</label>
+                    {% render_field form.Hourly_Code class="form-control"  placeholder=" Hourly Code"%}<hr>
+                    <label>Risk Code :</label>
+                    {% render_field form.Risk_Code class="form-control"  placeholder="Risk Code"%}<hr>
+                    <label>Material AssetNumber:</label>
+                    {% render_field form.Material_AssetNumber class="form-control"  placeholder="MaterialAssetNumber"%}<hr>
+                </div>
+
+                <div class="vl" style="left:66.5%;"></div>
+
+                <div class="Economicpart3">
+                    <label>Internal RequestNumber:</label>
+                    {% render_field form.Internal_RequestNumber class="form-control"  placeholder="Internal RequestNumber" %}<hr>
+                    <label>Internal RequestDate:</label>
+                    {% render_field form.Internal_RequestDate class="form-control"  placeholder="Internal RequestDate" %}<hr>
+                    <label>Financial ACNumber:</label>
+                    {% render_field form.Financial_ACNumber class="form-control"  placeholder="Financial ACNumber" %}<hr>
+                </div>
+                <button class="btn btn-primary next NEXTbton" style="left: 85%;top:88%;">Next</button>
+                <input class="btn btn-primary RESETbton"  type="reset" value="Reset" style="left: 5%;top:88%;">
+            </div>
+
+            <!-- Tab Maintenance-->
+            <div id="Maintenance" class="tab-pane">
+                <div class="Assetpart1">
+                    {% load widget_tweaks %}
+                    <label>PO Service Provider Name:</label>
+                    {% render_field form.Service_Provider_Name class="form-control"  placeholder="PO Service Provider Name" %}<hr>
+                    <label>Contract No:</label>
+                    {% render_field form.Contract_Number class="form-control" placeholder="Contract_No " %}<hr>
+                    <label>Concerned Person Name:</label>
+                    {% render_field form.Concerned_Person_Name class="form-control" placeholder="Concerned_Person Name Value " %}<hr>
+                    <label>Concerned Person Contact:</label>
+                    {% render_field form.Concerned_Person_Contact class="form-control" placeholder="Concerned Person Contact Value"%}<hr>
+                    <label> No of Planned PM Code:</label>
+                    {% render_field form.No_of_Planned_PM class="form-control"  placeholder=" No of Planned PM Code"%}<hr>
+                    <label>No of Corrective Planned Code:</label>
+                    {% render_field form.No_of_Corrective_Planned class="form-control"  placeholder="No of Corrective Planned Code"%}<hr>
+                </div>
+
+                <div class="vl" style="left:32%;"></div>
+
+                <div class="Maintenancepart2">
+                    <label>No of Planned QC AssetNumber:</label>
+                    {% render_field form.No_of_Planned_QC class="form-control"  placeholder="No of Planned QC"%}<hr>
+                    <label>Spare Part Inclusion in PM:</label>
+                    {% render_field form.Spare_Part_Inclusion_in_PM class="form-control"  placeholder="Spare Part Inclusion in PM " %}<hr>
+                    <label>Spare Part Inclusion in CM:</label>
+                    {% render_field form.Spare_Part_Inclusion_in_CM class="form-control"  placeholder="Spare Part Inclusion in CM " %}<hr>
+                    <label>Max Down Time:</label>
+                    {% render_field form.Max_Down_Time class="form-control"  placeholder="Max Down Time" %}<hr>
+                    <label>Response Time Part:</label>
+                    {% render_field form.Response_Time class="form-control"  placeholder="Response Time" %}<hr>
+                    <label>Estimated Time to Repair:</label>
+                    {% render_field form.Estimated_Time_to_Repair class="form-control"  placeholder="Estimated Time to Repair" %}<hr>
+
+                </div>
+
+                <div class="vl" style=" left:66.5%;"></div>
+
+                <div class="Maintenancepart3">
+                    <label>Standardized Reason for Delay in PM:</label>
+                    {% render_field form.Standardized_Reason_for_Delay_in_PM class="form-control"  placeholder="Standardized Reason for Delay in PM" %}<hr>
+                    <label>Operating Manual:</label>
+                    {% render_field form.Operating_Manual class="form-control"  placeholder="Operating Manual" %}<hr>
+                    <label>Service Manual:</label>
+                    {% render_field form.Service_Manual class="form-control"  placeholder="Service Manual" %}<hr>
+                     <label>Battery Replacement Frequency:</label>
+                    {% render_field form.Battery_Replacement_Frequency class="form-control"  placeholder="Battery Replacement Frequency " %}<hr>
+                    <label>Battery Maintenance:</label>
+                    {% render_field form.Battery_Maintenance class="form-control"  placeholder="Battery Maintenance"%}<hr>
+                </div>
+                <input class="btn btn-primary Submitbton" type="submit" value="Submit" style="left: 85%;">
+                <input class="btn btn-primary RESETbton"  type="reset" value="Reset" style="left: 5%;">
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+$('.next').click(function(){
+console.log("In Script");
+    var allValid = true;
+    console.log("allValid outside for loop", allValid);
+    $(this).parents('.tab-pane').find('.form-control').each(function(i,e){
+        var len = $(e).val().length;
+        if (e.hasAttribute('required') && len<=0 ){
+                allValid = false;
+        }
+        console.log("i, len, allValid, e", i, len, allValid, e.name);
+    });
+    if (allValid) {
+      $('.nav-tabs .active').parent().next('li').find('a').trigger('click');
+    }
+});
+</script>
+{% endblock %}

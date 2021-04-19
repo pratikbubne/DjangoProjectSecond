@@ -1,0 +1,54 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{%static 'Asset.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script defer src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script defer src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+</head>
+<body>
+<h1 class="text-info">
+    <font style="6">
+        Asset Model
+    </font>
+</h1><br>
+<table  id="myTable" class="table table-bordered table-striped">
+    <thead style="background:#007bff">
+        <tr style="text-align:center;">
+            <th>Model Id</th>
+            <th>Model Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for model in object_list %}
+            <tr>
+                <td>{{model.Model_ID}}</td>
+                <td>{{model.Model_Name}}</td>
+                <td><a href="{%url 'AssetModelUpdateView' model.Model_ID%}">Edit</a></td>
+                <td><a href="{%url 'AssetModel_confirm_delete' model.Model_ID %}">Delete</a></td>
+            </tr>
+        {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'AssetModelCreateView' %}" class="btn btn-lg btn-primary addbtn" role="button">Add Model</a>
+
+<script>
+$(document).ready(function() {
+    $('#myTable').DataTable({
+    "lengthMenu": [[ 5, 10, -1], [ 5, 10, "All"]],
+    });
+    $.fn.DataTable.ext.pager.numbers_length = 7;
+} );
+</script>
+</body>
+</html>
+{% endblock %}

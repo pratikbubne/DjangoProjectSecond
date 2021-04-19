@@ -1,0 +1,55 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{%static 'Asset.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script defer src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script defer src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+</head>
+<body>
+<h1 class="text-info">
+    Suppliers
+</h1><br>
+
+<table  id="myTable" class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Supplier Id</th>
+      <th>Supplier Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      {% for supplier in object_list %}
+            <tr>
+              <td>{{supplier.Supplier_ID}}</td>
+              <td><a href="{% url 'SupplierDetailView' supplier.Supplier_ID %}">{{supplier.Supplier_Name }}</a></td>
+              <td><a href="{% url 'SupplierUpdateView' supplier.Supplier_ID supplier.Supplier_Name%}">Edit</a></td>
+              <td><a href="{% url 'Supplier_confirm_delete' supplier.Supplier_ID %}">Delete</a></td>
+            </tr>
+      {% endfor %}
+  </tbody>
+</table>
+<a href="{% url 'SupplierCreateView' %}" class="btn btn-lg btn-primary addbtn" role="button">
+  Add Supplier
+</a>
+
+<script>
+$(document).ready(function() {
+    $('#myTable').DataTable({
+    "lengthMenu": [[ 5, 10, -1], [ 5, 10, "All"]],
+    });
+    $.fn.DataTable.ext.pager.numbers_length = 7;
+} );
+</script>
+</body>
+</html>
+{% endblock %}

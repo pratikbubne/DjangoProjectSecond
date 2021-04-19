@@ -1,0 +1,58 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{%static 'Asset.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script defer src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script defer src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+</head>
+<body>
+<h1 class="text-info">
+  Functional Groups
+</h1><br>
+
+<div>
+  <table  id="myTable" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Fun Id</th>
+        <th>Functional Group</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        {% for var in object_list %}
+            <tr>
+              <td>{{var.Fun_ID}}</td>
+              <td>{{var.Functional_Group}}</td>
+              <td><a href="{%url 'FunctionalGroupUpdateView' var.Fun_ID %}">Edit</a></td>
+              <td><a href="{%url 'FunctionalGroup_confirm_delete' var.Fun_ID %}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'FunctionalGroupCreateView' %}" class="btn btn-lg btn-primary addbtn" role="button">
+    Add Fun Group
+  </a>
+</div>
+
+<script>
+$(document).ready(function() {
+    $('#myTable').DataTable({
+    "lengthMenu": [[ 5, 10, -1], [ 5, 10, "All"]],
+    });
+    $.fn.DataTable.ext.pager.numbers_length = 7;
+} );
+</script>
+</body>
+</html>
+{% endblock %}

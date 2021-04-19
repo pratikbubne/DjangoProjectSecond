@@ -1,0 +1,149 @@
+/*Common For Asset tab and search and DetailsView of Asset*/
+.gen{position: relative;width:140%;}
+.tech{position: relative;left:60%;width:130%;}
+.eco{position: relative;left:120%;width:130%;}
+.maintenance{position: relative;left:160%;}
+
+/*Common */
+.main{
+        position: relative;
+        width: 100%;
+     }
+.main2{
+        position: relative;
+        width: 40%;
+        left:30%;
+     }
+h1{
+    text-align: center;
+    font-family: 'DM Serif Text', serif;
+  }
+.addbtn{
+       position: absolute;
+       right: 5%;
+       color: #dddddd;
+       background: #007bff;
+      }
+
+
+/*Common For Table*/
+td a{color: black;}
+td{text-align:center;}
+tr{text-align:center;}
+thead{background:#007bff;}
+
+/*Asset Add*/
+.vl {
+     position: absolute;
+     top:1%;
+     border-left: 1px solid black;
+     height: 94%;
+    }
+.RESETbton{
+           position: absolute;
+           top:92%;
+           width: 10%;
+          }
+.NEXTbton{
+          position: absolute;
+          top:92%;
+          width: 10%;
+         }
+.Assetpart1{
+            position: relative;
+            width: 30%;
+            left:-20;
+           }
+.Assetpart2{
+            position: absolute;
+            width: 30%;
+            left:34%;
+            top:8.5%;
+           }
+.Assetpart3{
+            position: absolute;
+            width: 30%;
+            top:8.5%;
+            left:68%;
+           }
+.Economicpart2{
+            position: absolute;
+            width: 30%;
+            left:34%;
+            top:13.5%;
+            }
+.Economicpart3{
+            position: absolute;
+            width: 30%;
+            left:68%;
+            top:13.5%;
+            }
+.Maintenancepart2{
+                position: absolute;
+                width: 30%;
+                left:34%;
+                top:10%;
+                }
+.Maintenancepart3{
+                position: absolute;
+                width: 30%;
+                left:68%;
+                top:10%;
+                }
+.Submitbton{
+            position: absolute;
+            top:92%;
+            width: 10%;
+           }
+
+/*Search Asset*/
+.Searchpart1{
+        position: relative;
+        width: 30%;
+     }
+.Searchpart2{
+        position: absolute;
+        width: 30%;
+        top:5%;
+     }
+.Searchpart3{
+        position: absolute;
+        width: 30%;
+        top:1%;
+        left:68%;
+     }
+.Searchbton{
+        position: absolute;
+        top:92%;
+        width: 30%;
+    }
+/*Asset Add END*/
+
+/*Search*/
+.Searchpart1{
+        position: relative;
+        width: 30%;
+     }
+    .Searchpart2{
+            position: absolute;
+            width: 30%;
+            left:34%;
+         }
+    .Searchpart3{
+            position: absolute;
+            width: 30%;
+            left:68%;
+         }
+/*END Search*/
+
+/*Asset DetailView*/
+.part1{
+        position: relative;
+        width: 35%;
+     }
+.part2{
+        position: absolute;
+        width: 35%;
+        left:50%;
+     }
+/* END Asset DetailView*/

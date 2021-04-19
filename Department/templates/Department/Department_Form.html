@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{%static 'Asset.css' %}">
+<h1 class="text-info">
+        Technical Department Form
+</h1><br>
+<div class="jumbotron main2">
+    <form method="POST">
+        {% csrf_token %}
+            {% load widget_tweaks %}
+
+                <label>Department Name:</label>
+                {% render_field form.Dept_Name class="form-control"  placeholder="Department Name" %}<hr>
+
+                <input class="btn btn-primary " type="submit" value="Submit" style="left: 30%;" >
+                <input class="btn btn-primary "  type="reset" value="Reset" style="left: 50%;">
+                <a href="{% url 'DepartmentListView' %}" class="btn btn-primary"  role="button" style="left: 70%;">
+                    All Departments
+                </a>
+    </form>
+</div>
+{% endblock content %}
